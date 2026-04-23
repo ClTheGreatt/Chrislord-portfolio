@@ -91,17 +91,18 @@ const tickerSkills = [
 const skillGroups = [
   {
     title: "Frontend",
-    text: "Responsive interfaces with React, semantic structure, cleaner spacing, and motion that supports the content.",
+    text: "React, JavaScript, HTML, CSS, responsive layout, and interface animation.",
   },
   {
     title: "Foundations",
-    text: "Networking, cybersecurity basics, and practical problem-solving applied to real student and utility projects.",
+    text: "Networking, cybersecurity basics, and practical problem-solving.",
   },
   {
     title: "Workflow",
-    text: "Figma, Git, and an iterative process focused on clarity, polish, and consistent improvement.",
+    text: "Figma, Git, and an iterative process focused on clarity and polish.",
   },
 ];
+
 
 const projectFilters = ["All", "Featured", "React", "Security", "School", "Frontend"];
 
@@ -311,13 +312,13 @@ const certifications = [
 const services = [
   {
     title: "Frontend Development",
-    text: "Responsive interfaces, cleaner layouts, and practical web builds focused on usability.",
+    text: "Responsive interfaces and practical web builds focused on usability.",
     icon: <Monitor size={22} />,
     num: "01",
   },
   {
     title: "UI / UX Design",
-    text: "Better hierarchy, stronger spacing, and interfaces that communicate more clearly.",
+    text: "Clear hierarchy, stronger spacing, and more polished presentation.",
     icon: <PenTool size={22} />,
     num: "02",
   },
@@ -328,6 +329,7 @@ const services = [
     num: "03",
   },
 ];
+
 
 const socialLinks = [
   {
@@ -376,8 +378,9 @@ const heroHighlights = [
 const contactChecklist = [
   "Project or role details",
   "Timeline or urgency",
-  "Any links or context to review",
+  "Relevant links or context",
 ];
+
 
 const fadeUp = {
   initial: { opacity: 0, y: 28 },
