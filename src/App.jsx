@@ -50,7 +50,7 @@ const tickerSkills = [
 ];
 
 const timeline = [
-  { year: "2023", label: "Started BSIT",    text: "Enrolled at BSPUC, major in Network and Web Application.", icon: <GraduationCap size={14}/> },
+  { year: "2023", label: "Started BSIT",    text: "Enrolled at BPSU, major in Network and Web Application.", icon: <GraduationCap size={14}/> },
   { year: "2024", label: "First Projects",  text: "Built first React projects — IP Calculator, Password Checker.", icon: <Code2 size={14}/> },
   { year: "2025", label: "Certifications",  text: "Earned 10+ certifications in JS, networking, cybersecurity, and AI.", icon: <Award size={14}/> },
   { year: "2026", label: "Now",             text: "Building stronger projects, improving UI/UX, and open to internships.", icon: <Star size={14}/> },
@@ -1716,7 +1716,7 @@ export default function App() {
                   <p>I'm looking for roles where I can keep improving while contributing thoughtful, structured work.</p>
                 </div>
                 <div className="mt-6 grid grid-cols-2 gap-3">
-                  {[["Education","BSPUC — BSIT 2023–2027"],["Major","Network & Web App"],["Status","3rd Year"],["Location","Bataan, Philippines"]].map(([k,v]) => (
+                  {[["Education","BPSU — BSIT 2023–2027"],["Major","Network & Web App"],["Status","3rd Year"],["Location","Bataan, Philippines"]].map(([k,v]) => (
                     <div key={k} className={`rounded-2xl border p-3 ${theme.cardInner}`}>
                       <p className={`text-[9px] uppercase tracking-[0.22em] ${theme.muted2}`}>{k}</p>
                       <p className={`mt-1 text-xs font-semibold ${theme.heading}`}>{v}</p>
