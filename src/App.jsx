@@ -18,6 +18,8 @@ import {
   FaGithub, FaHtml5, FaInstagram, FaJs, FaLinkedinIn, FaReact,
 } from "react-icons/fa";
 import { SiFramer, SiTailwindcss, SiVite } from "react-icons/si";
+import { Canvas, useFrame } from "@react-three/fiber";
+import Lenis from "lenis";
 
 // ─── DATA ──────────────────────────────────────────────────────────────────
 

@@ -344,6 +344,123 @@ section { position: relative; }
   html { scroll-padding-top: 5rem; }
 }
 
+/* ══════════════════════════════════════════════════════════════════════════
+   LENIS SMOOTH SCROLL — required overrides for Lenis 1.x
+   Lenis adds .lenis class to <html> on init. Override native scroll-behavior
+   so it doesn't conflict with Lenis's JS-driven smooth scroll.
+══════════════════════════════════════════════════════════════════════════ */
+html.lenis          { height: auto; scroll-behavior: auto; }
+html.lenis body     { height: auto; }
+html.lenis-stopped  { overflow: hidden; }
+.lenis.lenis-smooth { scroll-behavior: auto !important; }
+.lenis.lenis-scrolling iframe { pointer-events: none; }
+
+/* ══════════════════════════════════════════════════════════════════════════
+   SHIMMER GRADIENT TEXT — used on hero "Dizon" name
+══════════════════════════════════════════════════════════════════════════ */
+@keyframes shimmer-text {
+  0%   { background-position: 0% center; }
+  100% { background-position: 200% center; }
+}
+.text-gradient-gold {
+  background: linear-gradient(135deg, #fbbf24 0%, #fde68a 30%, #f59e0b 55%, #fbbf24 80%, #fde68a 100%);
+  background-size: 240% auto;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: shimmer-text 5.5s linear infinite;
+}
+
+/* ══════════════════════════════════════════════════════════════════════════
+   ANIMATED CONIC BORDER — spinning gradient border for featured elements.
+   Uses mask technique so the gradient shows only at the border edge,
+   working correctly on any background (transparent or opaque).
+   @property for smooth angle interpolation (Chrome 85+, Firefox 116+).
+══════════════════════════════════════════════════════════════════════════ */
+@property --grad-angle {
+  syntax: "<angle>";
+  inherits: false;
+  initial-value: 0deg;
+}
+@keyframes spin-border {
+  to { --grad-angle: 360deg; }
+}
+.conic-border {
+  position: relative;
+}
+.conic-border::before {
+  content: "";
+  position: absolute;
+  inset: -2px;
+  border-radius: inherit;
+  padding: 2px;
+  background: conic-gradient(
+    from var(--grad-angle),
+    rgba(251,191,36,0.72),
+    rgba(96,165,250,0.48),
+    rgba(167,139,250,0.60),
+    rgba(45,212,191,0.42),
+    rgba(251,191,36,0.72)
+  );
+  background-clip: border-box;
+  -webkit-mask:
+    linear-gradient(#fff 0 0) content-box,
+    linear-gradient(#fff 0 0);
+  -webkit-mask-composite: destination-out;
+  mask:
+    linear-gradient(#fff 0 0) content-box,
+    linear-gradient(#fff 0 0);
+  mask-composite: exclude;
+  animation: spin-border 7s linear infinite;
+  pointer-events: none;
+  z-index: 1;
+}
+
+/* ══════════════════════════════════════════════════════════════════════════
+   3D HERO SECTION WRAPPER DEPTH
+══════════════════════════════════════════════════════════════════════════ */
+.hero-bg-depth {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* ── ENHANCED CARD GLOW ON HOVER ─────────────────────────────────────────── */
+.card-glow-hover {
+  transition: box-shadow 0.4s ease, transform 0.4s var(--ease-spring);
+}
+.card-glow-hover:hover {
+  box-shadow: 0 0 0 1px rgba(251,191,36,0.18), 0 20px 60px rgba(0,0,0,0.28), 0 0 40px rgba(251,191,36,0.08);
+  transform: translateY(-2px);
+}
+
+/* ── DEPTH GLOW ──────────────────────────────────────────────────────────── */
+.depth-glow {
+  box-shadow:
+    0 2px 4px rgba(0,0,0,0.06),
+    0 8px 28px rgba(0,0,0,0.14),
+    0 28px 80px rgba(0,0,0,0.22),
+    0 0 0 1px rgba(255,255,255,0.055);
+}
+
+/* ── HOLOGRAPHIC SHIMMER ON PORTRAIT ────────────────────────────────────── */
+@keyframes holo-shift {
+  0%,100% { background-position: 0% 50%; }
+  50%      { background-position: 100% 50%; }
+}
+.holo-border {
+  background: linear-gradient(135deg,
+    rgba(251,191,36,0.35),
+    rgba(96,165,250,0.25),
+    rgba(167,139,250,0.32),
+    rgba(45,212,191,0.22),
+    rgba(251,191,36,0.35)
+  );
+  background-size: 300% 300%;
+  animation: holo-shift 8s ease infinite;
+}
+
 /* ── REDUCED MOTION ──────────────────────────────────────────────────────── */
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
